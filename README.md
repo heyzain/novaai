@@ -46,7 +46,3 @@ npm run build
 With the app running, run `npm run test:api` to check HTTP contracts and seed isolation. Set `API_TEST_URL` to target a different local preview. These tests use Node's built-in runner and need no additional dependencies.
 
 Built with Next.js 16 and React 19. Read the installed Next.js guides under `node_modules/next/dist/docs/` before changing application code, as required by `AGENTS.md`.
-
-## Repeating this workflow
-
-Use the [AI UI implementation workflow](docs/ai-ui-workflow.md) and [project brief template](docs/ui-project-brief.md) for future creative interfaces. They cover reference interpretation, tokens, reusable components, seeded APIs, adaptive layouts, QA and handoff, with reusable prompts and a React Native adaptation path.

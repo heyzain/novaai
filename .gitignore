@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local reusable workflow templates
+/docs/ai-ui-workflow.md
+/docs/ui-project-brief.md
