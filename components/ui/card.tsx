@@ -1,0 +1,13 @@
+import type { HTMLAttributes } from "react";
+
+export function Card({
+  children,
+  className = "",
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`nova-card ${className}`} {...props}>
+      {children}
+    </div>
+  );
+}

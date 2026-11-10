@@ -1,0 +1,229 @@
+/* Nova v1.0. Image-derived estimates, normalized into semantic roles.
+   Source of truth. tokens.ts inventories these variables for export. */
+:root {
+  --nova-premium-reference-width: 342;
+  --nova-premium-reference-height: 332;
+  --nova-premium-padding: 22;
+  --nova-premium-radius: 34;
+  --nova-premium-icon-size: 82;
+  --nova-premium-fill:
+    radial-gradient(
+      ellipse at 90% 0%,
+      rgba(44, 65, 109, 0.08),
+      transparent 58%
+    ),
+    linear-gradient(155deg, #121d37, #10192d 40%, #11131e 70%, #15151e);
+  --nova-premium-border: #323847;
+  --nova-premium-shadow:
+    inset 0 1px 2px rgba(192, 212, 255, 0.08),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.1);
+  --nova-premium-text: #f4f5f9;
+  --nova-history-background: #101118;
+  --nova-history-card-fill: linear-gradient(135deg, #191a23, #171821 55%);
+  --nova-history-card-border: #292a33;
+  --nova-history-card-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.025),
+    0 1px 1px rgba(255, 255, 255, 0.025);
+  --nova-history-reference-width: 324;
+  --nova-history-card-height: 68;
+  --nova-history-icon-size: 52;
+  --nova-history-card-gap: 10;
+  --nova-date-divider-line: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(180, 199, 230, 0.06) 25%,
+    rgba(180, 199, 230, 0.2) 55%,
+    rgba(180, 199, 230, 0.42) 80%,
+    rgba(180, 199, 230, 0.7) 100%
+  );
+  --nova-date-divider-glow: radial-gradient(
+    ellipse at 100% 50%,
+    rgba(162, 193, 247, 0.22) 0%,
+    rgba(162, 193, 247, 0.07) 45%,
+    transparent 80%
+  );
+  --nova-badge-date-width: 120px;
+  --nova-badge-date-height: 60px;
+  --nova-badge-date-font-size: 21px;
+  --nova-badge-date-text: #e1e8f0;
+  --nova-badge-date-fill: linear-gradient(
+    180deg,
+    #2c364b 0%,
+    #1e2d3d 18%,
+    #1a283a 45%,
+    #1b2a3c 100%
+  );
+  --nova-badge-date-border: linear-gradient(
+    180deg,
+    #c5d0ea 0%,
+    #566b82 34%,
+    #22364e 78%,
+    #1b2b43 100%
+  );
+  --nova-badge-date-shadow:
+    inset 0 1px 2px rgba(224, 235, 255, 0.07), 0 1px 2px rgba(0, 0, 0, 0.12);
+  /* Composer geometry uses reference-pixel units, scaled by its container. */
+  --nova-composer-reference-width: 1118;
+  --nova-composer-reference-height: 212;
+  --nova-composer-radius: 36;
+  --nova-composer-padding: 22;
+  --nova-composer-row-gap: 34;
+  --nova-composer-tool-height: 60;
+  --nova-composer-tool-gap: 12;
+  --nova-composer-font-size: 24;
+  --nova-composer-send-size: 70;
+  --nova-composer-background: #10111a;
+  --nova-composer-border-top: #8ba0c3;
+  --nova-composer-border-bottom: #2854a6;
+  --nova-composer-shadow:
+    0 0 24px rgba(57, 112, 218, 0.18), 0 0 5px rgba(114, 159, 246, 0.12);
+  color-scheme: dark;
+  --nova-bg-canvas: #070a12;
+  --nova-bg-panel: #101118;
+  --nova-bg-raised: #191a23;
+  --nova-bg-hover: #232530;
+  --nova-bg-sunken: #0c0d14;
+  --nova-text-primary: #f4f5f9;
+  --nova-text-secondary: #a1a3b2;
+  --nova-text-muted: #7b7e91;
+  --nova-accent: #3979ed;
+  --nova-accent-light: #83b3ff;
+  --nova-accent-deep: #2359c9;
+  --nova-focus: #95b9ff;
+  --nova-danger: #ff7d8e;
+  --nova-success: #8cdbb0;
+  --nova-warning: #edc983;
+  --nova-border: rgba(255, 255, 255, 0.09);
+  --nova-border-strong: rgba(255, 255, 255, 0.16);
+  --nova-border-highlight: rgba(255, 255, 255, 0.24);
+  --nova-gradient-blue: linear-gradient(
+    180deg,
+    #83b3ff 0%,
+    #3974d8 22%,
+    #2359c9 100%
+  );
+  --nova-gradient-glass: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.075) 0%,
+    rgba(255, 255, 255, 0.018) 35%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
+  --nova-gradient-atmosphere: radial-gradient(
+    ellipse at 55% 0%,
+    #1a305d 0%,
+    #101b34 32%,
+    #070a12 74%
+  );
+  --nova-shadow-glass:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.018), 0 3px 8px rgba(0, 0, 0, 0.2);
+  --nova-shadow-blue:
+    inset 0 1px 1px rgba(255, 255, 255, 0.38),
+    0 4px 12px rgba(13, 55, 133, 0.24);
+  --nova-shadow-panel:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 12px 32px rgba(0, 0, 0, 0.14);
+  --nova-shadow-focus:
+    0 0 0 1px var(--nova-focus), 0 0 22px rgba(57, 121, 237, 0.14);
+  /* Primary button: measured independently from the enlarged button reference.
+     Keep this material separate from the logo and conversation gradients. */
+  --nova-button-primary-width: 296px;
+  --nova-button-primary-height: 80px;
+  --nova-button-primary-radius: 28px;
+  --nova-button-primary-font-size: 24px;
+  --nova-button-primary-font-weight: 400;
+  --nova-button-primary-text: #f5f7fc;
+  --nova-button-primary-border: rgba(39, 83, 162, 0.16);
+  --nova-button-primary-border-highlight: rgba(132, 152, 190, 0.65);
+  --nova-button-primary-border-shadow: #3263ba;
+  --nova-button-primary-fill: linear-gradient(
+    180deg,
+    #79a8fc 0%,
+    #6499f2 27%,
+    #5087e6 52%,
+    #3974dc 77%,
+    #2866d2 100%
+  );
+  --nova-button-primary-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.17),
+    inset 0 -1px 1px rgba(19, 62, 139, 0.12),
+    0 8px 18px -14px rgba(25, 77, 163, 0.24);
+  /* Secondary button: independent material measured from the New chat crop. */
+  --nova-button-secondary-width: 342px;
+  --nova-button-secondary-height: 82px;
+  --nova-button-secondary-radius: 28px;
+  --nova-button-secondary-font-size: 24px;
+  --nova-button-secondary-font-weight: 400;
+  --nova-button-secondary-text: #ededef;
+  --nova-button-secondary-icon-size: 36px;
+  --nova-button-secondary-gap: 6px;
+  --nova-button-secondary-border: rgba(255, 255, 255, 0.11);
+  --nova-button-secondary-border-highlight: #4f5058;
+  --nova-button-secondary-border-shadow: #181921;
+  --nova-button-secondary-edge-fill: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.07) 0px,
+    rgba(255, 255, 255, 0.035) 2px,
+    rgba(255, 255, 255, 0.02) 6px,
+    transparent 14px,
+    transparent calc(100% - 14px),
+    rgba(255, 255, 255, 0.02) calc(100% - 6px),
+    rgba(255, 255, 255, 0.05) calc(100% - 2px),
+    rgba(255, 255, 255, 0.09) 100%
+  );
+  --nova-button-secondary-fill: linear-gradient(
+    180deg,
+    #2b2c35 0%,
+    #282932 5%,
+    #1f2029 10%,
+    #191a23 17%,
+    #171821 28%,
+    #171821 86%,
+    #1d1d26 100%
+  );
+  --nova-button-secondary-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.04),
+    inset 1px 0 0 rgba(255, 255, 255, 0.035),
+    inset -1px 0 0 rgba(255, 255, 255, 0.035),
+    0 0 1px rgba(255, 255, 255, 0.08), 0 1px 1px rgba(0, 0, 0, 0.08);
+  --nova-font-sans: var(--font-geist-sans), "Segoe UI", Arial, sans-serif;
+  --nova-font-mono: var(--font-geist-mono), Consolas, monospace;
+  --nova-text-caption: 12px;
+  --nova-text-small: 13px;
+  --nova-text-body: 14px;
+  --nova-text-large: 16px;
+  --nova-text-title: 24px;
+  --nova-text-display: 44px;
+  --nova-leading-body: 1.6;
+  --nova-leading-heading: 1.15;
+  --nova-weight-regular: 400;
+  --nova-weight-medium: 500;
+  --nova-weight-semibold: 600;
+  --nova-space-1: 4px;
+  --nova-space-2: 8px;
+  --nova-space-3: 12px;
+  --nova-space-4: 16px;
+  --nova-space-5: 20px;
+  --nova-space-6: 24px;
+  --nova-space-8: 32px;
+  --nova-space-10: 40px;
+  --nova-space-12: 48px;
+  --nova-space-16: 64px;
+  --nova-radius-small: 10px;
+  --nova-radius-medium: 14px;
+  --nova-radius-large: 18px;
+  --nova-radius-panel: 24px;
+  --nova-radius-pill: 999px;
+  --nova-control-small: 36px;
+  --nova-control-medium: 44px;
+  --nova-control-large: 52px;
+  --nova-icon-small: 16px;
+  --nova-icon-medium: 20px;
+  --nova-icon-large: 24px;
+  --nova-layout-rail: 76px;
+  --nova-layout-sidebar: 244px;
+  --nova-layout-history: 324px;
+  --nova-layout-content: 704px;
+  --nova-duration-fast: 140ms;
+  --nova-duration-normal: 220ms;
+  --nova-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

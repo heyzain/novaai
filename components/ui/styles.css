@@ -1,0 +1,1062 @@
+.nova-button,
+.nova-icon-button,
+.nova-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nova-space-2);
+  flex-shrink: 0;
+  border: 1px solid var(--nova-border);
+  color: var(--nova-text-primary);
+  font-weight: var(--nova-weight-medium);
+  transition:
+    background var(--nova-duration-fast) var(--nova-ease),
+    border-color var(--nova-duration-fast) var(--nova-ease),
+    transform var(--nova-duration-fast) var(--nova-ease);
+}
+.nova-button {
+  --nova-button-height: var(--nova-control-medium);
+  min-height: var(--nova-control-medium);
+  padding: 0 var(--nova-space-5);
+  border-radius: var(--nova-radius-medium);
+  font-size: var(--nova-text-small);
+  white-space: nowrap;
+}
+.nova-button--primary,
+.nova-icon-button--primary {
+  background: var(--nova-button-primary-fill);
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  box-shadow: var(--nova-button-primary-shadow);
+  border-color: var(--nova-button-primary-border);
+  border-top-color: var(--nova-button-primary-border-highlight);
+  border-bottom-color: var(--nova-button-primary-border-shadow);
+  color: var(--nova-button-primary-text);
+}
+.nova-button--primary {
+  border-radius: calc(var(--nova-button-height) * 0.35);
+  font-size: calc(var(--nova-button-height) * 0.3);
+  font-weight: var(--nova-button-primary-font-weight);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+}
+.nova-button--primary > .nova-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  transform: translateY(calc(var(--nova-button-height) * 0.0125));
+}
+.nova-button--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--nova-text-secondary);
+}
+.nova-button--danger {
+  background: rgba(255, 125, 142, 0.06);
+  color: var(--nova-danger);
+  border-color: rgba(255, 125, 142, 0.14);
+}
+.nova-button--sm {
+  --nova-button-height: var(--nova-control-small);
+  min-height: var(--nova-control-small);
+  padding: 0 var(--nova-space-3);
+}
+.nova-button--sm:not(.nova-button--primary, .nova-button--secondary) {
+  border-radius: var(--nova-radius-small);
+  font-size: var(--nova-text-caption);
+}
+.nova-button--lg {
+  --nova-button-height: var(--nova-control-large);
+  min-height: var(--nova-control-large);
+  padding: 0 var(--nova-space-6);
+}
+.nova-button--xl {
+  --nova-button-height: var(--nova-button-primary-height);
+  width: var(--nova-button-primary-width);
+  height: var(--nova-button-primary-height);
+  min-height: var(--nova-button-primary-height);
+  padding: 0 var(--nova-space-6);
+  border-radius: var(--nova-button-primary-radius);
+  font-size: var(--nova-button-primary-font-size);
+}
+.nova-button--secondary,
+.nova-chip,
+.nova-icon-button--secondary {
+  background:
+    var(--nova-button-secondary-edge-fill), var(--nova-button-secondary-fill);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  background-repeat: no-repeat;
+  border-color: var(--nova-button-secondary-border);
+  border-top-color: var(--nova-button-secondary-border-highlight);
+  border-bottom-color: var(--nova-button-secondary-border-shadow);
+  box-shadow: var(--nova-button-secondary-shadow);
+}
+.nova-button--secondary {
+  border-radius: calc(var(--nova-button-height) * 0.3414634146);
+  color: var(--nova-button-secondary-text);
+  font-size: calc(var(--nova-button-height) * 0.2926829268);
+  font-weight: var(--nova-button-secondary-font-weight);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  gap: calc(var(--nova-button-height) * 0.0731707317);
+  text-shadow: none;
+}
+.nova-button--secondary > .nova-button-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  transform: translateX(calc(var(--nova-button-height) * -0.012195122));
+}
+.nova-button--secondary .nova-button-text {
+  transform: translateY(calc(var(--nova-button-height) * 0.012195122));
+}
+.nova-button--secondary .nova-button-label > svg {
+  width: calc(var(--nova-button-height) * 0.4390243902);
+  height: calc(var(--nova-button-height) * 0.4390243902);
+  flex-shrink: 0;
+}
+.nova-button--secondary.nova-button--xl {
+  --nova-button-height: var(--nova-button-secondary-height);
+  width: var(--nova-button-secondary-width);
+  height: var(--nova-button-secondary-height);
+  min-height: var(--nova-button-secondary-height);
+  border-radius: var(--nova-button-secondary-radius);
+  font-size: var(--nova-button-secondary-font-size);
+  gap: var(--nova-button-secondary-gap);
+}
+.nova-button--secondary.nova-button--xl .nova-button-label > svg {
+  width: var(--nova-button-secondary-icon-size);
+  height: var(--nova-button-secondary-icon-size);
+}
+.nova-button:not(:disabled):hover {
+  border-color: var(--nova-border-highlight);
+  filter: brightness(1.12);
+}
+.nova-button--primary:not(:disabled):hover {
+  border-color: var(--nova-button-primary-border);
+  border-top-color: var(--nova-button-primary-border-highlight);
+  border-bottom-color: var(--nova-button-primary-border-shadow);
+  filter: brightness(1.035);
+}
+.nova-button--primary:not(:disabled):active {
+  filter: brightness(0.97);
+}
+.nova-icon-button:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+.nova-icon-button--primary:not(:disabled):hover {
+  filter: brightness(1.035);
+}
+.nova-icon-button:not(:disabled):active {
+  filter: brightness(0.94);
+}
+.nova-icon-button--primary:not(:disabled):active {
+  filter: brightness(0.97);
+}
+.nova-button--secondary:not(:disabled):hover {
+  border-color: var(--nova-button-secondary-border);
+  border-top-color: var(--nova-button-secondary-border-highlight);
+  border-bottom-color: var(--nova-button-secondary-border-shadow);
+  filter: brightness(1.08);
+}
+.nova-button--secondary:not(:disabled):active {
+  filter: brightness(0.94);
+}
+.nova-chip:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+.nova-chip:not(:disabled):active {
+  filter: brightness(0.94);
+}
+.nova-button:not(:disabled):active,
+.nova-icon-button:not(:disabled):active,
+.nova-chip:not(:disabled):active {
+  transform: translateY(1px);
+}
+.nova-button:disabled,
+.nova-icon-button:disabled,
+.nova-chip:disabled {
+  opacity: 0.35;
+}
+.nova-icon-button {
+  --nova-icon-button-size: var(--nova-control-medium);
+  width: var(--nova-icon-button-size);
+  height: var(--nova-icon-button-size);
+  padding: 0;
+  border-radius: calc(var(--nova-icon-button-size) * 0.3414634146);
+}
+.nova-icon-button--sm {
+  --nova-icon-button-size: var(--nova-control-small);
+}
+.nova-icon-button--lg {
+  --nova-icon-button-size: var(--nova-space-16);
+}
+.nova-icon-button--primary {
+  border-radius: calc(var(--nova-icon-button-size) * 0.35);
+}
+.nova-icon-button--secondary {
+  color: var(--nova-button-secondary-text);
+}
+.nova-icon-button--ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--nova-text-secondary);
+}
+.nova-icon-button--ghost:not(:disabled):hover {
+  color: var(--nova-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+.nova-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.nova-mark-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nova-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-pill);
+  font-size: 11px;
+  color: var(--nova-text-secondary);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.nova-badge--blue {
+  color: var(--nova-accent-light);
+  background: rgba(57, 121, 237, 0.1);
+  border-color: rgba(131, 179, 255, 0.18);
+}
+.nova-badge--success {
+  color: var(--nova-success);
+  background: rgba(140, 219, 176, 0.06);
+  border-color: rgba(140, 219, 176, 0.12);
+}
+.nova-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.nova-badge--date {
+  --nova-date-badge-scale: calc(2 / 3);
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(var(--nova-badge-date-width) * var(--nova-date-badge-scale));
+  height: calc(var(--nova-badge-date-height) * var(--nova-date-badge-scale));
+  padding: 0 0 calc(3px * var(--nova-date-badge-scale));
+  border: 1px solid transparent;
+  border-radius: var(--nova-radius-pill);
+  background:
+    var(--nova-badge-date-fill) padding-box,
+    var(--nova-badge-date-border) border-box;
+  background-repeat: no-repeat;
+  box-shadow: var(--nova-badge-date-shadow);
+  color: var(--nova-badge-date-text);
+  font-size: calc(
+    var(--nova-badge-date-font-size) * var(--nova-date-badge-scale)
+  );
+  font-weight: var(--nova-weight-regular);
+  line-height: 1;
+  letter-spacing: 0;
+}
+.nova-badge--date.nova-badge-size--sm {
+  --nova-date-badge-scale: calc(8 / 15);
+}
+.nova-badge--date.nova-badge-size--lg {
+  --nova-date-badge-scale: 1;
+}
+.date-separator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 8px;
+  color: var(--nova-text-secondary);
+  margin: 18px 0 23px;
+}
+.date-separator::before,
+.date-separator::after {
+  content: "";
+  flex: 1;
+  min-width: 0;
+  height: 5px;
+  background:
+    var(--nova-date-divider-line) center / 100% 1px no-repeat,
+    var(--nova-date-divider-glow) center / 100% 5px no-repeat;
+}
+.date-separator::after {
+  transform: scaleX(-1);
+}
+.nova-card {
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-large);
+  background: var(--nova-bg-panel);
+  box-shadow: var(--nova-shadow-panel);
+}
+.nova-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nova-space-2);
+  font-size: var(--nova-text-small);
+  width: 100%;
+}
+.nova-field label {
+  font-weight: var(--nova-weight-medium);
+}
+.nova-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--nova-space-2);
+  border: 1px solid var(--nova-border-strong);
+  border-radius: var(--nova-radius-medium);
+  padding: 0 var(--nova-space-3);
+  min-height: var(--nova-control-medium);
+  background: var(--nova-bg-sunken);
+  color: var(--nova-text-muted);
+}
+.nova-input-wrap:focus-within {
+  border-color: var(--nova-focus);
+  box-shadow: 0 0 0 3px rgba(57, 121, 237, 0.1);
+}
+.nova-input-wrap input {
+  color: var(--nova-text-primary);
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: var(--nova-space-3) 0;
+  font-size: var(--nova-text-small);
+}
+.nova-input-wrap input:focus-visible {
+  outline: 0;
+}
+.nova-input-wrap:has([aria-invalid="true"]) {
+  border-color: var(--nova-danger);
+}
+.nova-input-wrap:has(:disabled) {
+  opacity: 0.4;
+}
+.nova-field-error {
+  color: var(--nova-danger);
+  font-size: var(--nova-text-caption);
+}
+.nova-field-hint {
+  color: var(--nova-text-muted);
+  font-size: var(--nova-text-caption);
+}
+.nova-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  position: relative;
+  font-size: var(--nova-text-small);
+}
+.nova-toggle-input {
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 22px;
+  opacity: 0;
+}
+.nova-toggle-track {
+  pointer-events: none;
+  width: 36px;
+  height: 22px;
+  padding: 3px;
+  border-radius: var(--nova-radius-pill);
+  border: 1px solid var(--nova-border-strong);
+  background: var(--nova-bg-hover);
+  flex-shrink: 0;
+  transition: background var(--nova-duration-fast);
+}
+.nova-toggle-track > span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--nova-text-secondary);
+  transition: transform var(--nova-duration-fast);
+}
+.nova-toggle-input:checked + .nova-toggle-track {
+  background: var(--nova-gradient-blue);
+  border-color: var(--nova-accent-light);
+}
+.nova-toggle-input:checked + .nova-toggle-track > span {
+  transform: translateX(14px);
+  background: white;
+}
+.nova-toggle-input:focus-visible + .nova-toggle-track {
+  outline: 2px solid var(--nova-focus);
+  outline-offset: 4px;
+}
+.nova-toggle-input:disabled + .nova-toggle-track {
+  opacity: 0.35;
+}
+.nova-chip {
+  min-height: var(--nova-control-small);
+  padding: 0 var(--nova-space-3);
+  border-radius: var(--nova-radius-small);
+  font-size: var(--nova-text-caption);
+  color: var(--nova-button-secondary-text);
+  font-weight: var(--nova-button-secondary-font-weight);
+}
+.nova-chip.is-selected,
+.nova-icon-button--secondary.is-active {
+  border-color: rgba(131, 179, 255, 0.45);
+  border-top-color: rgba(149, 185, 255, 0.55);
+  border-bottom-color: rgba(57, 121, 237, 0.25);
+  color: var(--nova-accent-light);
+  background:
+    linear-gradient(rgba(57, 121, 237, 0.13), rgba(57, 121, 237, 0.13)),
+    var(--nova-button-secondary-edge-fill), var(--nova-button-secondary-fill);
+  background-origin: border-box, padding-box, border-box;
+  background-clip: border-box, padding-box, border-box;
+  background-repeat: no-repeat;
+}
+.nova-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--nova-radius-small);
+  background: linear-gradient(135deg, #29374d, #334d55 55%, #77766b);
+  border: 1px solid var(--nova-border-highlight);
+  color: #e1ebf4;
+  font-size: 11px;
+  font-weight: 600;
+}
+.nova-avatar--sm {
+  width: 28px;
+  height: 28px;
+  font-size: 9px;
+  border-radius: 9px;
+}
+.nova-composer-shell {
+  container-type: inline-size;
+  width: 100%;
+}
+.nova-composer {
+  --nova-composer-unit: clamp(
+    0.583333px,
+    calc(100cqw / var(--nova-composer-reference-width)),
+    calc(var(--nova-layout-content) / var(--nova-composer-reference-width))
+  );
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(
+    var(--nova-composer-reference-height) * var(--nova-composer-unit)
+  );
+  margin: 0;
+  padding: calc(var(--nova-composer-padding) * var(--nova-composer-unit));
+  border: max(1px, calc(2 * var(--nova-composer-unit))) solid transparent;
+  border-radius: calc(var(--nova-composer-radius) * var(--nova-composer-unit));
+  box-shadow: var(--nova-composer-shadow);
+  background:
+    linear-gradient(
+        var(--nova-composer-background),
+        var(--nova-composer-background)
+      )
+      padding-box,
+    linear-gradient(
+        180deg,
+        var(--nova-composer-border-top),
+        #527ab9 55%,
+        var(--nova-composer-border-bottom)
+      )
+      border-box;
+}
+.nova-composer[data-disabled="true"] {
+  opacity: 0.45;
+}
+.nova-composer--lg {
+  --nova-composer-unit: clamp(
+    0.583333px,
+    calc(100cqw / var(--nova-composer-reference-width)),
+    1px
+  );
+}
+.nova-composer-tools {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--nova-composer-tool-gap) * var(--nova-composer-unit));
+  flex-wrap: wrap;
+}
+.nova-composer-mode-scroll {
+  display: contents;
+}
+.nova-composer-tools .nova-chip {
+  min-height: calc(
+    var(--nova-composer-tool-height) * var(--nova-composer-unit)
+  );
+  height: calc(var(--nova-composer-tool-height) * var(--nova-composer-unit));
+  padding: 0 calc(18 * var(--nova-composer-unit));
+  border-radius: calc(18 * var(--nova-composer-unit));
+  gap: calc(10 * var(--nova-composer-unit));
+  font-size: calc(21 * var(--nova-composer-unit));
+  line-height: 1;
+  white-space: nowrap;
+}
+.nova-composer-tools .nova-chip:not(.is-selected) {
+  color: #b9bac2;
+}
+.nova-composer-tools .nova-chip > svg {
+  width: calc(26 * var(--nova-composer-unit));
+  height: calc(26 * var(--nova-composer-unit));
+  flex-shrink: 0;
+}
+.nova-composer-tool--brainstorm {
+  width: calc(194 * var(--nova-composer-unit));
+}
+.nova-composer-tool--search {
+  width: calc(205 * var(--nova-composer-unit));
+}
+.nova-composer-tool--code {
+  width: calc(140 * var(--nova-composer-unit));
+}
+.nova-composer-tool--more {
+  min-width: calc(110 * var(--nova-composer-unit));
+  width: auto;
+}
+.nova-composer-more {
+  position: relative;
+}
+.nova-composer-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  z-index: 10;
+  width: 180px;
+  padding: 6px;
+  border: 1px solid var(--nova-border-strong);
+  border-radius: var(--nova-radius-medium);
+  background: var(--nova-bg-panel);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.nova-composer-menu > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: var(--nova-text-secondary);
+  font-size: 13px;
+  text-align: left;
+}
+.nova-composer-menu > button:hover,
+.nova-composer-menu > button[aria-pressed="true"] {
+  color: var(--nova-accent-light);
+  background: rgba(57, 121, 237, 0.1);
+}
+.nova-composer-bottom {
+  display: flex;
+  align-items: center;
+  gap: calc(24 * var(--nova-composer-unit));
+  margin-top: calc(var(--nova-composer-row-gap) * var(--nova-composer-unit));
+  min-height: calc(var(--nova-composer-send-size) * var(--nova-composer-unit));
+}
+.nova-composer-actions {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--nova-composer-unit));
+  flex-shrink: 0;
+}
+.nova-composer textarea {
+  flex: 1;
+  min-width: 0;
+  resize: none;
+  field-sizing: content;
+  max-height: calc(180 * var(--nova-composer-unit));
+  min-height: calc(36 * var(--nova-composer-unit));
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--nova-text-primary);
+  outline: 0;
+  font-size: calc(var(--nova-composer-font-size) * var(--nova-composer-unit));
+  font-weight: 400;
+  line-height: calc(34 * var(--nova-composer-unit));
+  letter-spacing: 0.005em;
+}
+.nova-composer textarea::placeholder {
+  color: #b9bac2;
+  opacity: 1;
+}
+.nova-composer textarea:focus-visible {
+  outline: none;
+}
+.nova-composer:focus-within {
+  box-shadow:
+    var(--nova-composer-shadow),
+    0 0 0 1px rgba(149, 185, 255, 0.15);
+}
+.nova-composer-bottom .nova-icon-button--ghost {
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+  width: calc(36 * var(--nova-composer-unit));
+  height: calc(44 * var(--nova-composer-unit));
+  color: #f0f0f3;
+}
+.nova-composer-attach > svg {
+  width: calc(36 * var(--nova-composer-unit));
+  height: calc(36 * var(--nova-composer-unit));
+}
+.nova-composer-mic > svg {
+  width: calc(34 * var(--nova-composer-unit));
+  height: calc(34 * var(--nova-composer-unit));
+}
+.nova-composer .nova-composer-mic.is-listening {
+  color: var(--nova-danger);
+}
+.nova-composer .nova-send {
+  --nova-icon-button-size: calc(
+    var(--nova-composer-send-size) * var(--nova-composer-unit)
+  );
+  border-radius: calc(20 * var(--nova-composer-unit));
+}
+.nova-composer .nova-send > svg {
+  width: calc(36 * var(--nova-composer-unit));
+  height: calc(36 * var(--nova-composer-unit));
+}
+.nova-composer .nova-send:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.nova-composer-notice {
+  color: var(--nova-text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+}
+.nova-composer-attachment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 8px;
+  padding: 2px 4px 2px 9px;
+  border: 1px solid #344463;
+  border-radius: 10px;
+  background: #142238;
+  color: var(--nova-accent-light);
+  font-size: 12px;
+}
+.nova-composer-attachment > svg {
+  flex-shrink: 0;
+}
+.nova-composer-attachment > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nova-composer-attachment > button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #bacbe5;
+}
+.nova-composer-attachment > button:hover {
+  background: #ffffff0a;
+}
+@container (max-width: 520px) {
+  .nova-composer-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .nova-composer-mode-scroll {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: inherit;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 6px 2px;
+    margin: -6px -2px;
+    scrollbar-width: none;
+    scroll-padding-inline: 6px;
+  }
+  .nova-composer-tools .nova-chip {
+    height: 44px;
+    min-height: 44px;
+  }
+  .nova-composer textarea {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .nova-composer-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .nova-composer-bottom > textarea {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    min-height: 24px;
+  }
+  .nova-composer-actions {
+    grid-column: 1;
+    grid-row: 2;
+    gap: 4px;
+  }
+  .nova-composer-bottom .nova-icon-button--ghost {
+    width: 44px;
+    height: 44px;
+  }
+  .nova-composer .nova-send {
+    grid-column: 2;
+    grid-row: 2;
+    --nova-icon-button-size: 44px;
+  }
+  .nova-composer-menu > button {
+    min-height: 44px;
+  }
+  .nova-composer-attachment > button {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (pointer: coarse) {
+  .nova-composer .nova-send {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nova-composer textarea {
+    font-size: max(
+      16px,
+      calc(var(--nova-composer-font-size) * var(--nova-composer-unit))
+    );
+  }
+  .nova-composer-bottom .nova-icon-button--ghost {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nova-composer-tools .nova-chip {
+    min-height: 44px;
+    height: 44px;
+  }
+}
+.nova-avatar > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.nova-history-shell {
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+}
+.nova-history-panel {
+  --nova-history-unit: clamp(
+    0.75px,
+    calc(100cqw / var(--nova-history-reference-width)),
+    1.6px
+  );
+  display: flex;
+  flex-direction: column;
+  min-height: calc(640 * var(--nova-history-unit));
+  padding: calc(4 * var(--nova-history-unit));
+  border: 1px solid #2a2c36;
+  border-radius: calc(24 * var(--nova-history-unit));
+  background: var(--nova-history-background);
+  box-shadow:
+    inset 0 0 0 2px #14151e,
+    inset 0 3px 2px rgba(185, 196, 224, 0.08),
+    0 0 0 2px rgba(14, 15, 22, 0.6);
+}
+.nova-profile-header {
+  --nova-history-unit: 1px;
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--nova-history-unit));
+  min-width: 0;
+  min-height: calc(66 * var(--nova-history-unit));
+  padding: calc(5 * var(--nova-history-unit));
+  border: 1px solid #292a34;
+  border-radius: calc(20 * var(--nova-history-unit));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 35%),
+    var(--nova-history-background);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.045),
+    0 0 0 2px rgba(255, 255, 255, 0.015);
+}
+.nova-history-panel .nova-profile-header {
+  --nova-history-unit: inherit;
+}
+.nova-profile-header .nova-avatar {
+  width: calc(52 * var(--nova-history-unit));
+  height: calc(52 * var(--nova-history-unit));
+  border: 0;
+  border-radius: calc(14 * var(--nova-history-unit));
+}
+.nova-profile-copy {
+  min-width: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+.nova-profile-copy strong,
+.nova-profile-copy > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nova-profile-copy strong {
+  color: #f4f5f9;
+  font-size: calc(15.5 * var(--nova-history-unit));
+  font-weight: 600;
+}
+.nova-profile-copy > span {
+  margin-top: calc(3 * var(--nova-history-unit));
+  color: #93949f;
+  font-size: calc(15 * var(--nova-history-unit));
+}
+.nova-profile-gift.nova-button {
+  --nova-button-height: calc(52 * var(--nova-history-unit));
+  min-height: var(--nova-button-height);
+  width: calc(128 * var(--nova-history-unit));
+  padding: 0;
+  flex-shrink: 0;
+  gap: calc(6 * var(--nova-history-unit));
+}
+.nova-profile-gift.nova-button .nova-button-label > svg {
+  width: calc(20 * var(--nova-history-unit));
+  height: calc(20 * var(--nova-history-unit));
+}
+.nova-history-section {
+  margin: calc(17 * var(--nova-history-unit)) calc(9 * var(--nova-history-unit))
+    0;
+  padding-top: calc(16 * var(--nova-history-unit));
+  border-top: 1px solid #272831;
+}
+.nova-history-panel .nova-history-section > h3 {
+  margin: 0 0 calc(15 * var(--nova-history-unit));
+  color: #f4f5f9;
+  font-size: calc(17 * var(--nova-history-unit));
+  line-height: calc(25 * var(--nova-history-unit));
+  font-weight: 500;
+}
+.nova-history-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--nova-history-card-gap) * var(--nova-history-unit));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nova-history {
+  --nova-history-unit: 1px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: calc(12 * var(--nova-history-unit));
+  width: 100%;
+  height: calc(var(--nova-history-card-height) * var(--nova-history-unit));
+  padding: calc(7 * var(--nova-history-unit));
+  border: 1px solid var(--nova-history-card-border);
+  border-radius: calc(18 * var(--nova-history-unit));
+  background: var(--nova-history-card-fill);
+  color: var(--nova-text-primary);
+  box-shadow: var(--nova-history-card-shadow);
+}
+.nova-history-panel .nova-history {
+  --nova-history-unit: inherit;
+}
+.nova-history:hover {
+  border-color: #454651;
+}
+.nova-history.is-active {
+  border-color: rgba(131, 179, 255, 0.5);
+  box-shadow:
+    var(--nova-history-card-shadow),
+    inset 0 0 0 1px rgba(131, 179, 255, 0.12);
+}
+.nova-history .nova-history-icon {
+  --nova-icon-button-size: calc(
+    var(--nova-history-icon-size) * var(--nova-history-unit)
+  );
+  border-radius: calc(15 * var(--nova-history-unit));
+  color: #f4f5f9;
+}
+.nova-history-icon > svg {
+  width: calc(25 * var(--nova-history-unit));
+  height: calc(25 * var(--nova-history-unit));
+}
+.nova-history-copy {
+  flex: 1;
+  min-width: 0;
+  line-height: calc(22 * var(--nova-history-unit));
+}
+.nova-history-copy strong,
+.nova-history-copy > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nova-history-copy strong {
+  font-size: calc(16 * var(--nova-history-unit));
+  font-weight: 600;
+}
+.nova-history-copy > span {
+  margin-top: calc(2 * var(--nova-history-unit));
+  font-size: calc(15.5 * var(--nova-history-unit));
+  color: #93939f;
+}
+.nova-history-delete.nova-button {
+  width: auto;
+  margin: auto calc(9 * var(--nova-history-unit))
+    calc(7 * var(--nova-history-unit));
+  min-height: calc(52 * var(--nova-history-unit));
+  border-radius: calc(14 * var(--nova-history-unit));
+  background: #191a23;
+  color: var(--nova-danger);
+  font-size: calc(14 * var(--nova-history-unit));
+  font-weight: 400;
+}
+.nova-history-delete > svg {
+  width: calc(20 * var(--nova-history-unit));
+  height: calc(20 * var(--nova-history-unit));
+}
+.nova-history-section:has(+ .nova-history-delete) {
+  margin-bottom: calc(28 * var(--nova-history-unit));
+}
+.nova-history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 30px 0;
+  color: var(--nova-text-secondary);
+}
+.nova-premium-shell {
+  container-type: inline-size;
+  width: 100%;
+  min-width: 0;
+}
+.nova-premium {
+  --nova-premium-unit: clamp(
+    0.58px,
+    calc(100cqw / var(--nova-premium-reference-width)),
+    1.6px
+  );
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-height: calc(
+    var(--nova-premium-reference-height) * var(--nova-premium-unit)
+  );
+  padding: calc(var(--nova-premium-padding) * var(--nova-premium-unit));
+  border: 1px solid var(--nova-premium-border);
+  border-top-color: #46516a;
+  border-radius: calc(var(--nova-premium-radius) * var(--nova-premium-unit));
+  background: var(--nova-premium-fill);
+  box-shadow:
+    inset 0 -1px 1px rgba(192, 212, 255, 0.035),
+    var(--nova-premium-shadow);
+  color: var(--nova-premium-text);
+}
+.nova-premium::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 35% 12%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 72% 14%,
+      rgba(173, 197, 255, 0.12) 0 0.5px,
+      transparent 0.8px
+    ),
+    radial-gradient(
+      circle at 88% 28%,
+      rgba(173, 197, 255, 0.12) 0 0.5px,
+      transparent 0.8px
+    ),
+    linear-gradient(
+      133deg,
+      transparent 57%,
+      rgba(149, 180, 255, 0.025) 61%,
+      transparent 65%
+    ),
+    linear-gradient(
+      133deg,
+      transparent 67%,
+      rgba(149, 180, 255, 0.02) 71%,
+      transparent 74%
+    );
+  mask-image: linear-gradient(#000, transparent);
+}
+.nova-premium-title {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--nova-premium-unit));
+  min-height: calc(var(--nova-premium-icon-size) * var(--nova-premium-unit));
+}
+.nova-premium-title > strong {
+  font-size: calc(26 * var(--nova-premium-unit));
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nova-premium .nova-crown {
+  --nova-icon-button-size: calc(
+    var(--nova-premium-icon-size) * var(--nova-premium-unit)
+  );
+  border-radius: calc(26 * var(--nova-premium-unit));
+}
+.nova-crown > svg {
+  width: calc(38 * var(--nova-premium-unit));
+  height: calc(38 * var(--nova-premium-unit));
+}
+.nova-premium > .nova-premium-description {
+  margin: calc(24 * var(--nova-premium-unit)) 0
+    calc(28 * var(--nova-premium-unit));
+  font-size: calc(24 * var(--nova-premium-unit));
+  font-weight: 400;
+  line-height: calc(36 * var(--nova-premium-unit));
+  color: var(--nova-premium-text);
+}
+.nova-premium > .nova-button {
+  --nova-button-height: calc(80 * var(--nova-premium-unit));
+  width: 100%;
+  height: var(--nova-button-height);
+  min-height: var(--nova-button-height);
+  padding: 0;
+}
