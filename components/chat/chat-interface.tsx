@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
 import { Toggle } from "@/components/ui/toggle";
+import { Toast } from "@/components/ui/toast";
 import { MessageComposer } from "@/components/chat/message-composer";
 import { ConversationHistoryPanel } from "@/components/chat/conversation-history-panel";
 import { PremiumPlanCard } from "@/components/chat/premium-plan-card";
@@ -675,19 +676,15 @@ export function ChatInterface() {
           )}
         </div>
       </div>
-      <div
-        className={`chat-toast ${toast ? "is-visible" : ""}`}
-        role="status"
-        aria-live="polite"
-      >
-        <Icon name="check" size={16} />
-        <span>{toast}</span>
-        {deletedHistory && toast === "History deleted" && (
-          <button type="button" onClick={restoreHistory}>
-            Undo
-          </button>
-        )}
-      </div>
+      <Toast
+        className="chat-toast"
+        message={toast}
+        action={
+          deletedHistory && toast === "History deleted"
+            ? { label: "Undo", onClick: restoreHistory }
+            : undefined
+        }
+      />
 
       <ChatDialog
         title={modal ? titles[modal] : "Nova"}

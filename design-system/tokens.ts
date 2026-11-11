@@ -1,5 +1,14 @@
 /** Names only: export reads actual CSS values, keeping tokens.css authoritative. */
 export const tokenGroups = {
+  toast: [
+    "toast-fill",
+    "toast-border",
+    "toast-border-highlight",
+    "toast-border-shadow",
+    "toast-shadow",
+    "toast-text",
+    "toast-icon",
+  ],
   dialog: [
     "dialog-fill",
     "dialog-border",

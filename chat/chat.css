@@ -741,46 +741,6 @@
   pointer-events: auto;
   transition-delay: 0s;
 }
-.chat-toast {
-  position: fixed;
-  z-index: 120;
-  bottom: 24px;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: calc(100% - 30px);
-  padding: 12px 18px;
-  border: 1px solid #3c465c;
-  border-radius: 14px;
-  background: #172237;
-  box-shadow: 0 6px 24px #0008;
-  color: #edf3ff;
-  font-size: 13px;
-  transform: translate(-50%, 20px);
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 150ms,
-    transform 150ms;
-}
-.chat-toast.is-visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
-}
-.chat-toast > svg {
-  flex-shrink: 0;
-  color: #9ed6bb;
-}
-.chat-toast > button {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #99c2ff;
-  font-size: 13px;
-  text-decoration: underline;
-}
 .chat-dialog {
   position: fixed;
   z-index: 100;
@@ -1306,7 +1266,7 @@
   .chat-toast {
     left: 50%;
     max-width: calc(100% - 32px);
-    bottom: 18px;
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
   }
 }
 @media (max-width: 380px) {

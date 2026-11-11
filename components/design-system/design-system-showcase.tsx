@@ -16,6 +16,7 @@ import { Chip } from "@/components/ui/chip";
 import { IconButton } from "@/components/ui/icon-button";
 import { TextField } from "@/components/ui/text-field";
 import { Toggle } from "@/components/ui/toggle";
+import { Toast } from "@/components/ui/toast";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { interfaceIconNames } from "@/components/ui/icon-catalog";
 import { AppLogo } from "@/components/branding/app-logo";
@@ -1272,15 +1273,7 @@ export function DesignSystemShowcase() {
           <Icon name="arrow" size={15} />
         </Button>
       </dialog>
-      <div
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        className={`ds-toast ${toast ? "is-visible" : ""}`}
-      >
-        <Icon name="check" size={16} />
-        {toast}
-      </div>
+      <Toast className="ds-toast" message={toast} />
     </div>
   );
 }

@@ -1369,35 +1369,7 @@
   width: 100%;
 }
 .ds-toast {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: fixed;
-  bottom: 24px;
   left: calc(50% + 115px);
-  z-index: 100;
-  transform: translate(-50%, 15px);
-  padding: 12px 18px;
-  color: var(--nova-text-primary);
-  background: #1a2131;
-  border: 1px solid rgba(131, 179, 255, 0.24);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  font-size: 12px;
-  max-width: calc(100vw - 32px);
-  pointer-events: none;
-  opacity: 0;
-  transition:
-    opacity var(--nova-duration-fast),
-    transform var(--nova-duration-fast);
-}
-.ds-toast > svg {
-  flex-shrink: 0;
-  color: var(--nova-accent-light);
-}
-.ds-toast.is-visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
 }
 .skip-link {
   position: fixed;
@@ -2075,6 +2047,5 @@
   }
   .ds-toast {
     left: 50%;
-    font-size: 11px;
   }
 }

@@ -1,3 +1,72 @@
+.nova-toast {
+  position: fixed;
+  z-index: 120;
+  bottom: max(24px, calc(env(safe-area-inset-bottom) + 12px));
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+  max-width: min(520px, calc(100vw - 32px));
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--nova-toast-border);
+  border-top-color: var(--nova-toast-border-highlight);
+  border-bottom-color: var(--nova-toast-border-shadow);
+  border-radius: 16px;
+  background: var(--nova-toast-fill);
+  box-shadow: var(--nova-toast-shadow);
+  backdrop-filter: blur(12px);
+  color: var(--nova-toast-text);
+  font-size: var(--nova-text-small);
+  line-height: 20px;
+  transform: translate(-50%, 12px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 170ms var(--nova-ease),
+    transform 170ms var(--nova-ease);
+}
+.nova-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.nova-toast-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(162, 223, 194, 0.16);
+  border-radius: 8px;
+  background: rgba(162, 223, 194, 0.06);
+  color: var(--nova-toast-icon);
+}
+.nova-toast-message {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.nova-toast-action {
+  flex-shrink: 0;
+  min-height: 32px;
+  padding: 4px 10px;
+  margin-right: -4px;
+  border: 1px solid rgba(131, 179, 255, 0.16);
+  border-radius: 9px;
+  background: rgba(131, 179, 255, 0.06);
+  color: var(--nova-accent-light);
+  font-size: inherit;
+}
+.nova-toast-action:hover {
+  background: rgba(131, 179, 255, 0.12);
+  border-color: rgba(131, 179, 255, 0.35);
+}
+@media (pointer: coarse) {
+  .nova-toast-action {
+    min-height: 44px;
+  }
+}
 .nova-button,
 .nova-icon-button,
 .nova-chip,
