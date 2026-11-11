@@ -1,5 +1,15 @@
 /** Names only: export reads actual CSS values, keeping tokens.css authoritative. */
 export const tokenGroups = {
+  dialog: [
+    "dialog-fill",
+    "dialog-border",
+    "dialog-border-top",
+    "dialog-border-bottom",
+    "dialog-shadow",
+    "dialog-backdrop",
+    "dialog-field-fill",
+    "dialog-result-highlight",
+  ],
   premium: [
     "premium-reference-width",
     "premium-reference-height",

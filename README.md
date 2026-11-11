@@ -13,7 +13,7 @@ Open http://localhost:3000. For a production preview, run `npm run build`, then 
 
 ## Included
 
-- 130 semantic tokens covering color, typography, gradients, shadows, spacing, radii, sizes, layout, motion, both measured buttons, the composer, date badge and divider, profile/history sidebar, and premium card.
+- Semantic tokens covering color, typography, gradients, shadows, spacing, radii, sizes, layout, motion, both measured buttons, the composer, date badge and divider, profile/history sidebar, premium card, and glass dialogs.
 - Fresh React primitives, rounded line icons, and composed chat, history, and premium patterns.
 - Interactive examples, copyable colors and icons, searchable documentation, and JSON token export.
 - Responsive documentation, keyboard controls, visible focus, reduced motion, and local Geist fonts.

@@ -18,6 +18,7 @@ import type { ImageAsset, Message } from "@/chat/contracts";
 import { useChatData } from "@/chat/use-chat-data";
 import { MessageActions } from "./message-actions";
 import { ChatDialog } from "./chat-dialog";
+import { ConversationSearch } from "./conversation-search";
 import { MessageSkeleton } from "./message-skeleton";
 import { ConversationListSkeleton } from "./conversation-list-skeleton";
 import { HistoryPanelSkeleton } from "./history-panel-skeleton";
@@ -146,6 +147,9 @@ export function ChatInterface() {
         event.preventDefault();
         closePanel();
         setModal("search");
+        dialogRef.current
+          ?.querySelector<HTMLInputElement>(".chat-search-field input")
+          ?.focus({ preventScroll: true });
       }
     }
     document.addEventListener("keydown", shortcut);
@@ -689,49 +693,21 @@ export function ChatInterface() {
         title={modal ? titles[modal] : "Nova"}
         onClose={() => setModal(null)}
         dialogRef={dialogRef}
-        wide={modal === "image"}
+        variant={
+          modal === "image"
+            ? "image"
+            : modal === "search"
+              ? "search"
+              : "default"
+        }
       >
         {modal === "search" && (
-          <>
-            <label className="chat-search-field">
-              <Icon name="search" />
-              <input
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Find a conversation…"
-                aria-label="Search conversations"
-                autoFocus
-              />
-              <kbd>Ctrl K</kbd>
-            </label>
-            <div className="chat-search-results">
-              {conversations
-                .filter((item) =>
-                  `${item.title} ${item.description}`
-                    .toLowerCase()
-                    .includes(search.toLowerCase()),
-                )
-                .map((item) => (
-                  <button
-                    type="button"
-                    key={item.id}
-                    onClick={() => selectConversation(item.id)}
-                  >
-                    <Icon name="chat" />
-                    <span>
-                      <strong>{item.title}</strong>
-                      <span>{item.description}</span>
-                    </span>
-                    <Icon name="arrow" size={16} />
-                  </button>
-                ))}
-              {!conversations.some((item) =>
-                `${item.title} ${item.description}`
-                  .toLowerCase()
-                  .includes(search.toLowerCase()),
-              ) && <p>No conversations found. Try a different search.</p>}
-            </div>
-          </>
+          <ConversationSearch
+            conversations={conversations}
+            query={search}
+            onQueryChange={setSearch}
+            onSelect={selectConversation}
+          />
         )}
         {modal === "settings" && (
           <div className="chat-settings">
