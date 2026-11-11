@@ -1,6 +1,7 @@
 .nova-button,
 .nova-icon-button,
-.nova-chip {
+.nova-chip,
+.nova-icon-tile {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +24,8 @@
   white-space: nowrap;
 }
 .nova-button--primary,
-.nova-icon-button--primary {
+.nova-icon-button--primary,
+.nova-icon-tile--primary {
   background: var(--nova-button-primary-fill);
   background-origin: border-box;
   background-repeat: no-repeat;
@@ -83,7 +85,8 @@
 }
 .nova-button--secondary,
 .nova-chip,
-.nova-icon-button--secondary {
+.nova-icon-button--secondary,
+.nova-icon-tile--secondary {
   background:
     var(--nova-button-secondary-edge-fill), var(--nova-button-secondary-fill);
   background-origin: padding-box, border-box;
@@ -182,7 +185,8 @@
 .nova-chip:disabled {
   opacity: 0.35;
 }
-.nova-icon-button {
+.nova-icon-button,
+.nova-icon-tile {
   --nova-icon-button-size: var(--nova-control-medium);
   width: var(--nova-icon-button-size);
   height: var(--nova-icon-button-size);
@@ -195,7 +199,8 @@
 .nova-icon-button--lg {
   --nova-icon-button-size: var(--nova-space-16);
 }
-.nova-icon-button--primary {
+.nova-icon-button--primary,
+.nova-icon-tile--primary {
   border-radius: calc(var(--nova-icon-button-size) * 0.35);
 }
 .nova-icon-button--secondary {
@@ -911,6 +916,10 @@
     var(--nova-history-icon-size) * var(--nova-history-unit)
   );
   border-radius: calc(15 * var(--nova-history-unit));
+  border-bottom-color: var(--nova-history-card-border);
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    var(--nova-button-secondary-shadow);
   color: #f4f5f9;
 }
 .nova-history-icon > svg {

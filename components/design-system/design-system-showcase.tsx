@@ -17,6 +17,7 @@ import { IconButton } from "@/components/ui/icon-button";
 import { TextField } from "@/components/ui/text-field";
 import { Toggle } from "@/components/ui/toggle";
 import { Icon, type IconName } from "@/components/ui/icon";
+import { interfaceIconNames } from "@/components/ui/icon-catalog";
 import { AppLogo } from "@/components/branding/app-logo";
 import { ConversationHistoryPanel } from "@/components/chat/conversation-history-panel";
 import { PremiumPlanCard } from "@/components/chat/premium-plan-card";
@@ -114,14 +115,14 @@ function SectionHeading({
   children,
 }: {
   title: string;
-  description: string;
+  description?: string;
   children?: ReactNode;
 }) {
   return (
     <div className="section-heading">
       <div>
         <h2>{title}</h2>
-        <p>{description}</p>
+        {description && <p>{description}</p>}
       </div>
       {children}
     </div>
@@ -609,7 +610,7 @@ export function DesignSystemShowcase() {
                   <div className="mini-composer">
                     <span>Ask me something…</span>
                     <span className="mini-send">
-                      <Icon name="send" size={14} />
+                      <Icon name="send-solid" size={14} />
                     </span>
                   </div>
                 </div>
@@ -850,7 +851,7 @@ export function DesignSystemShowcase() {
               <Card className="surface-specimen">
                 <IconButton
                   className="blue-example"
-                  icon="send"
+                  icon="send-solid"
                   label="Preview primary icon button"
                   variant="primary"
                   size="lg"
@@ -979,7 +980,7 @@ export function DesignSystemShowcase() {
                 </div>
                 <div className="chip-row">
                   <Chip
-                    icon="bulb"
+                    icon="bulb-input"
                     selected={selectedTool === "Brainstorm"}
                     onClick={() =>
                       setSelectedTool(
@@ -990,7 +991,7 @@ export function DesignSystemShowcase() {
                     Brainstorm
                   </Chip>
                   <Chip
-                    icon="globe"
+                    icon="web"
                     selected={selectedTool === "Web search"}
                     onClick={() =>
                       setSelectedTool(
@@ -1006,34 +1007,10 @@ export function DesignSystemShowcase() {
           </section>
 
           <section id="icons" className="ds-section">
-            <SectionHeading
-              title="Familiar at a glance."
-              description="Rounded strokes. Consistent weight. Just enough detail."
-            >
-              <span className="section-note">24px grid · 1.5px stroke</span>
-            </SectionHeading>
+            <SectionHeading title="Icons" />
             <Card className="icon-specimen">
               <div className="icon-gallery">
-                {(
-                  [
-                    "search",
-                    "grid",
-                    "chat",
-                    "bag",
-                    "bulb",
-                    "globe",
-                    "code",
-                    "copy",
-                    "download",
-                    "refresh",
-                    "crown",
-                    "trash",
-                    "attach",
-                    "mic",
-                    "send",
-                    "more",
-                  ] as const
-                ).map((name) => (
+                {interfaceIconNames.map((name) => (
                   <button
                     type="button"
                     key={name}
@@ -1046,14 +1023,10 @@ export function DesignSystemShowcase() {
                       )
                     }
                   >
-                    <Icon name={name} size={22} />
+                    <Icon name={name} size={24} />
                     <span>{name}</span>
                   </button>
                 ))}
-              </div>
-              <div className="specimen-footer">
-                <span>Click an icon to copy its usage.</span>
-                <code>Icon · 16 / 20 / 24px</code>
               </div>
             </Card>
           </section>
@@ -1274,7 +1247,7 @@ export function DesignSystemShowcase() {
           </button>
         </div>
         <span className="dialog-crown">
-          <Icon name="crown" size={30} />
+          <Icon name="crown-solid" size={30} />
         </span>
         <h2 id="upgrade-title">A little more possibility.</h2>
         <p>

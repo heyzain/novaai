@@ -30,7 +30,7 @@ Reusable controls live in `components/ui/`, chat presentation in `components/cha
 
 `design-system/` owns visual tokens, example data, documentation and documentation styles; it does not own React component implementations. The root layout imports `design-system/tokens.css` and `components/ui/styles.css` directly. The `/design-system` page uses those same components and adds its own documentation styles.
 
-The only application pages are `/` and `/design-system`. The separate button and composer review pages and their comparison-only assets have been removed. Seed API endpoints remain available for the chat.
+The application pages are `/` and `/design-system`. The design system includes all 24 interface icons as a simple icon-and-name gallery; clicking an item copies its usage. `/icons` redirects to `/design-system#icons`. Comparison crops and the separate review demos have been removed. Seed API endpoints remain available for the chat.
 
 The browser loads data through `chat/chat-api.ts`; fixtures stay server-only in `chat/server/`. API routes return consistent typed envelopes and simulate a random 1, 2 or 3 second response delay. Startup, uncached conversation changes and replies have skeleton loading states, cancellation and recoverable errors. Set `NOVA_DEMO_DELAY=false` in `.env.local` and restart to disable artificial latency.
 

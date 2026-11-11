@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/icon";
 
 const tools = [
   { name: "Brainstorm", icon: "bulb-input", key: "brainstorm" },
-  { name: "Web Search", icon: "globe", key: "search" },
+  { name: "Web Search", icon: "web", key: "search" },
   { name: "Code", icon: "code", key: "code" },
 ] as const;
 const moreTools = ["Write", "Analyze", "Translate"];

@@ -88,9 +88,11 @@ The optional `.date-separator` wrapper adds a decorative divider around the date
 
 ```tsx
 <IconButton icon="plus" label="New chat" variant="secondary" />
-<IconButton icon="send" label="Send message" variant="primary" size="sm" />
-<IconButton icon="attach" label="Attach a file" variant="ghost" />
+<IconButton icon="send-solid" label="Send message" variant="primary" size="sm" />
+<IconButton icon="paperclip" label="Attach a file" variant="ghost" />
 ```
+
+`Icon` in `components/ui/icon.tsx` is the shared SVG implementation. The 24 interface symbols use a 24-unit grid, rounded 1.5-unit outlines, and transparent cutouts for filled shapes. `/design-system#icons` lists each actual icon with its component name; clicking an item copies its usage. `/icons` redirects to that section. Reference crops and comparison demos are removed. `IconTile` shares the primary and secondary materials used by `IconButton`. For interactive controls use `IconButton` with an accessible label. The supplied `NovaIcons.tsx` API delegates to these components; its logo entry uses the existing PNG rather than redrawing it.
 
 ### Typography
 

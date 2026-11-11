@@ -939,15 +939,17 @@
 }
 .icon-gallery {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  padding: 12px 18px;
+  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
+  gap: 8px;
+  padding: 12px;
 }
 .icon-gallery > button {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 19px 0 15px;
+  min-width: 0;
+  padding: 20px 8px;
   border: 0;
   border-radius: 10px;
   background: none;
@@ -958,7 +960,9 @@
   background: rgba(131, 179, 255, 0.04);
 }
 .icon-gallery > button > span {
-  font-size: 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
   color: var(--nova-text-muted);
 }
 .patterns-grid {
@@ -1664,9 +1668,6 @@
   }
   .section-note {
     display: none;
-  }
-  .icon-gallery {
-    grid-template-columns: repeat(4, 1fr);
   }
   .patterns-grid {
     grid-template-columns: 1fr;

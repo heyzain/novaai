@@ -105,7 +105,7 @@ export function ConversationPreview({
                 className={liked ? "is-liked" : ""}
                 onClick={() => setLiked(!liked)}
               >
-                <Icon name="heart" size={15} />
+                <Icon name="thumbs-up" size={15} />
               </button>
               <button
                 type="button"
