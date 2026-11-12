@@ -1,6 +1,8 @@
 # Nova design system
 
-A fresh, self-contained system derived from the supplied Nova AI screenshot. The app's `/design-system` route is the interactive system reference; `/` is the full chat interface.
+Reusable components and tokens recreated from [AI Travel Assistant Chatbot Dashboard UI](https://dribbble.com/shots/27840684-AI-Travel-Assistant-Chatbot-Dashboard-UI) by [Sheikh Raihan UI](https://dribbble.com/sheikhraihan1). The app's `/design-system` route is the interactive system reference; `/` is the full chat interface.
+
+See the app’s `/credits` page and [CREDITS.md](../CREDITS.md) for attribution, asset provenance and reuse notes. Credit does not establish permission to reuse the source design or its media.
 
 ## Files and usage
 

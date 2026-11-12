@@ -1035,6 +1035,7 @@
 }
 .chat-settings > a {
   display: flex;
+  min-height: 44px;
   align-items: center;
   gap: 10px;
   padding-top: 16px;

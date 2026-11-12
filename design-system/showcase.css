@@ -1207,6 +1207,11 @@
   border: 1px solid var(--nova-border);
   border-radius: 12px;
 }
+.reference-details p a {
+  color: var(--nova-accent-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .ds-footer {
   padding: 24px 0;
   display: flex;

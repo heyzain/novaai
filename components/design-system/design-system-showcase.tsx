@@ -20,6 +20,7 @@ import { Toast } from "@/components/ui/toast";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { interfaceIconNames } from "@/components/ui/icon-catalog";
 import { AppLogo } from "@/components/branding/app-logo";
+import { DESIGN_CREDIT } from "@/config/credits";
 import { ConversationHistoryPanel } from "@/components/chat/conversation-history-panel";
 import { PremiumPlanCard } from "@/components/chat/premium-plan-card";
 import { ConversationPreview } from "./conversation-preview";
@@ -1143,6 +1144,20 @@ export function DesignSystemShowcase() {
               </summary>
               <div>
                 <p>
+                  Original UI by{" "}
+                  <a
+                    href={DESIGN_CREDIT.designerUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {DESIGN_CREDIT.designer}
+                  </a>
+                  .{" "}
+                  <Link href="/credits">
+                    View design credits and usage notes.
+                  </Link>
+                </p>
+                <p>
                   Values are visually estimated from this image and normalized
                   for reuse. Success, warning, validation, and interaction
                   states extend the reference. Photography and the avatar are
@@ -1166,7 +1181,9 @@ export function DesignSystemShowcase() {
               <span className="footer-divider" />
               Version 1.0
             </span>
-            <span>Designed to feel like Nova.</span>
+            <span>
+              <Link href="/credits">Credits & attribution</Link>
+            </span>
             <a
               href="#overview"
               onClick={(e) => {

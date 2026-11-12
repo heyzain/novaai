@@ -2,6 +2,16 @@
 
 A chat interface and reusable design system derived from the supplied Nova AI reference. The chat lives at `/`; the interactive design system lives at `/design-system`. A stateless seeded API supplies the profile, conversation data and illustrative replies.
 
+**Original UI design:** [Sheikh Raihan UI](https://dribbble.com/sheikhraihan1) — [AI Travel Assistant Chatbot Dashboard UI](https://dribbble.com/shots/27840684-AI-Travel-Assistant-Chatbot-Dashboard-UI) on Dribbble. This repository recreates and adapts that visual design; the frontend implementation and interactions are separate contributions. No affiliation or endorsement is claimed.
+
+Attribution and asset provenance are available on the app's `/credits` page and in [CREDITS.md](CREDITS.md).
+
+## Chat UI preview
+
+Screenshot of the current desktop implementation, showing the conversation outline, chat, message composer and history panel.
+
+![Nova AI chat UI with a conversation outline on the left, mountain travel conversation in the center, and conversation history on the right](docs/images/chat-ui-desktop.png)
+
 ## Run locally
 
 ```sh
@@ -32,11 +42,19 @@ Reusable controls live in `components/ui/`, chat presentation in `components/cha
 
 `design-system/` owns visual tokens, example data, documentation and documentation styles; it does not own React component implementations. The root layout imports `design-system/tokens.css` and `components/ui/styles.css` directly. The `/design-system` page uses those same components and adds its own documentation styles.
 
-The application pages are `/` and `/design-system`. The design system includes all 24 interface icons as a simple icon-and-name gallery; clicking an item copies its usage. `/icons` redirects to `/design-system#icons`. Comparison crops and the separate review demos have been removed. Seed API endpoints remain available for the chat.
+The application pages are `/`, `/design-system`, and `/credits`. The design system includes all 24 interface icons as a simple icon-and-name gallery; clicking an item copies its usage. Comparison crops and the separate review demos have been removed. Seed API endpoints remain available for the chat.
 
 The browser loads data through `chat/chat-api.ts`; fixtures stay server-only in `chat/server/`. API routes return consistent typed envelopes and simulate a random 1, 2 or 3 second response delay. Startup, uncached conversation changes and replies have skeleton loading states, cancellation and recoverable errors. Set `NOVA_DEMO_DELAY=false` in `.env.local` and restart to disable artificial latency.
 
 Search, new conversations, editing, copy/download, feedback, history deletion with Undo, settings and both side panels work. New chats and edits belong to the current mounted tab and reset on refresh; the API does not persist them or share visitor state. AI responses, persistent storage, file uploads, account sessions and billing are not connected. The composer retains its attachment and browser voice-input behavior. Future backend work can replace the seed source and add persisted mutations through the existing API client and state hook without rebuilding the presentation.
+
+## Design credits and reuse
+
+Credit acknowledges the original designer; it does not establish permission to reuse the design or its assets. No reuse license or permission record for the reference design, screenshot, extracted photos/portrait, or separately supplied logo is documented in this repository. Confirm the applicable licenses or obtain permission from the relevant rights holders before redistribution or commercial reuse. A demo or educational purpose alone does not establish permission. See [Dribbble's terms](https://dribbble.com/terms).
+
+The photograph and portrait crops remain reference-derived assets; their underlying creators have not been identified. The custom SVG implementation does not transfer ownership of the reference design. These notes do not relicense third-party work or guarantee legal clearance.
+
+Geist Sans and Geist Mono are credited to The Geist Project Authors / Vercel under SIL OFL 1.1; the full notice is retained at [public/licenses/geist-OFL.txt](public/licenses/geist-OFL.txt). See [CREDITS.md](CREDITS.md) for the file-level provenance list. If permission is obtained or an asset is replaced, update both the credits page and that record.
 
 ## Verify
 

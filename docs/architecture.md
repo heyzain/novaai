@@ -6,7 +6,7 @@ This is an API-ready frontend demo, not a persistent chat service. There is inte
 
 | Location                           | Responsibility                                                                                                                              |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app/`                             | Home and design system pages, legacy icon URL redirect, layout, metadata and thin HTTP handlers                                             |
+| `app/`                             | Home, design system and credits pages, layout, metadata and thin HTTP handlers                                                              |
 | `components/ui/`                   | One module per reusable control, generic icons, and shared component styles                                                                 |
 | `components/chat/`                 | ChatInterface, MessageComposer, ConversationHistoryPanel, UserProfileHeader, PremiumPlanCard, actions, dialog, skeletons and request errors |
 | `components/branding/app-logo.tsx` | Functionally named AppLogo, with identity supplied by `config/app-brand.ts`                                                                 |
@@ -24,7 +24,11 @@ This is an API-ready frontend demo, not a persistent chat service. There is inte
 
 Components use direct imports and functional filenames/exports rather than a brand-named component API or large primitive/pattern barrels. The existing `nova-` CSS/token namespace is retained to preserve the approved visual styling and avoid selector collisions; it is not the component API. Product UI imports no seed fixtures, and documentation examples remain independent of the live app.
 
-The design system includes a name-and-SVG gallery of the 24 interface icons. `/icons` redirects to `/design-system#icons`; comparison crops, demo sections and their styles have been removed. `components/ui/icon.tsx` owns SVG geometry; `icon-tile.tsx` shares the existing button surfaces. The supplied `NovaIcons.tsx` exports remain a compatibility facade over these functional components, including the existing logo asset. API routes and framework metadata/404 behavior are unaffected.
+The design system includes a name-and-SVG gallery of the 24 interface icons. Comparison crops, demo sections and their styles have been removed. `components/ui/icon.tsx` owns SVG geometry; `icon-tile.tsx` shares the existing button surfaces. The supplied `NovaIcons.tsx` exports remain a compatibility facade over these functional components, including the existing logo asset. API routes and framework metadata/404 behavior are unaffected.
+
+## Attribution and provenance
+
+`/credits` is a static page with original-designer attribution, source links and asset/license notes. Public attribution data lives in `config/credits.ts`, shared with the design-system reference. The app Settings and design-system footer link to the page. `CREDITS.md` records file-level provenance; `public/licenses/geist-OFL.txt` retains the bundled font notice. Attribution does not establish reuse permission for the reference design or imagery.
 
 ## Conversation navigation
 

@@ -709,6 +709,11 @@ export function ChatInterface() {
               Explore the Nova design system
               <Icon name="arrow" size={16} />
             </Link>
+            <Link href="/credits">
+              <Icon name="book" />
+              Design credits & licenses
+              <Icon name="arrow" size={16} />
+            </Link>
           </div>
         )}
         {modal === "profile" && (
