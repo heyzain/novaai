@@ -27,8 +27,16 @@ test("bootstrap supplies a consistent profile, lists and initial conversation", 
   const ids = new Set(data.conversations.map((item) => item.id));
   assert.equal(ids.size, data.conversations.length);
   assert.ok([...data.historyIds, ...data.recentIds].every((id) => ids.has(id)));
+  assert.deepEqual(new Set(data.historyIds), ids);
   assert.ok(ids.has(data.activeConversation.id));
   assert.equal(data.activeConversation.messages[0].images.length, 3);
+  assert.ok(
+    data.activeConversation.messages.every(
+      (message) =>
+        typeof message.outlineTitle === "string" &&
+        message.outlineTitle.length > 0,
+    ),
+  );
   assert.ok(data.conversations.every((item) => !("messages" in item)));
 });
 

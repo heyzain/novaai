@@ -5,6 +5,7 @@ export type Message = {
   id: string;
   role: "assistant" | "user";
   text: string;
+  outlineTitle?: string;
   images?: ImageAsset[];
   feedback?: "up" | "down" | null;
 };

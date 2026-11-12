@@ -159,3 +159,7 @@ The panel follows the original 324px sidebar proportions. At that width cards ar
 ### Premium Plan card
 
 `PremiumPlanCard` uses the approved primary Button and blue icon-tile material, with a filled crown, illuminated navy surface, two-line description and Upgrade Now action. The reference geometry is 342 × 332px: 22px padding, 34px corners, an 82px crown tile, 26px title, 24/36px description and 296 × 80px button. It scales with its container, producing approximately 216 × 210px at the original sidebar width. The `premium` token group exports the geometry, surface, border, shadow and text color. Pass `onUpgrade` to connect plan selection; the showcase opens its existing plan-preview dialog.
+
+### Current conversation outline
+
+`ConversationOutline` in `components/chat/` renders the **In this chat** navigation separately from `ConversationHistoryPanel`. `chat/conversation-outline.ts` derives entries and stable target IDs from loaded messages; an optional API `outlineTitle` supplies editorial labels, with a deterministic text fallback. Photo groups get their own targets. `useConversationOutline` tracks scrolling, respects reduced motion, and scrolls/focuses only within the conversation pane. On mobile the drawer closes before focus moves to the selected content. Loading/error/empty states expose no stale links; a message being regenerated remains disabled until its content returns. Edited text clears an old editorial label so the outline stays accurate. History holds all saved conversations and keeps its independent deletion/restore flow.

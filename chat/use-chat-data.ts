@@ -38,7 +38,6 @@ export function useChatData() {
   const [selectedHistoryId, setSelectedHistoryId] = useState<string | null>(
     null,
   );
-  const [recentIds, setRecentIds] = useState<string[]>([]);
   const [historyIds, setHistoryIds] = useState<string[]>([]);
   const [deletedHistory, setDeletedHistory] = useState<string[] | null>(null);
   const [saveHistory, setSaveHistory] = useState(true);
@@ -74,7 +73,6 @@ export function useChatData() {
           ),
         );
         setProfile(data.profile);
-        setRecentIds(data.recentIds);
         setHistoryIds(data.historyIds);
         setActiveId(data.activeConversation.id);
         setStatus("ready");
@@ -152,7 +150,6 @@ export function useChatData() {
       },
       ...current,
     ]);
-    setRecentIds((current) => [id, ...current]);
     if (saveHistory) setHistoryIds((current) => [id, ...current]);
     setActiveId(id);
     setSelectedHistoryId(id);
@@ -238,7 +235,16 @@ export function useChatData() {
           ? {
               ...item,
               messages: item.messages?.map((message) =>
-                message.id === id ? { ...message, ...update } : message,
+                message.id === id
+                  ? {
+                      ...message,
+                      ...(update.text !== undefined &&
+                      update.text !== message.text
+                        ? { outlineTitle: undefined }
+                        : {}),
+                      ...update,
+                    }
+                  : message,
               ),
             }
           : item,
@@ -263,7 +269,6 @@ export function useChatData() {
     activeId,
     conversations,
     profile,
-    recentIds,
     history,
     selectedHistoryId,
     saveHistory,

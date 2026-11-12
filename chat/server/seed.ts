@@ -23,6 +23,7 @@ export const historyIds = [
   "process",
   "cta",
   "form",
+  ...recentIds.slice(1),
 ];
 
 const history = [
@@ -71,6 +72,7 @@ export const conversations: Conversation[] = [
       {
         id: "welcome",
         role: "assistant",
+        outlineTitle: "Mountain overview",
         text: "Hi! Summer in the mountains is especially beautiful — green valleys, lakes, and fresh air. For example, this is what a typical mountain lake looks like in summer 🌞",
         images: [
           {
@@ -90,9 +92,15 @@ export const conversations: Conversation[] = [
       {
         id: "mountain-question",
         role: "user",
+        outlineTitle: "Find mountain tours",
         text: "It looks really beautiful! Could you please find some ready-made mountain tours?",
       },
-      { id: "mountain-reply", role: "assistant", text: mountainReply },
+      {
+        id: "mountain-reply",
+        role: "assistant",
+        outlineTitle: "Tour options & next steps",
+        text: mountainReply,
+      },
     ],
   },
   ...history.map(

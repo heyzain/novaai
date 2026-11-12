@@ -26,6 +26,12 @@ Components use direct imports and functional filenames/exports rather than a bra
 
 The design system includes a name-and-SVG gallery of the 24 interface icons. `/icons` redirects to `/design-system#icons`; comparison crops, demo sections and their styles have been removed. `components/ui/icon.tsx` owns SVG geometry; `icon-tile.tsx` shares the existing button surfaces. The supplied `NovaIcons.tsx` exports remain a compatibility facade over these functional components, including the existing logo asset. API routes and framework metadata/404 behavior are unaffected.
 
+## Conversation navigation
+
+The left **In this chat** panel is derived from `active.messages`, not `recentIds`. `chat/conversation-outline.ts` supplies titles and stable message/photo targets; `chat/use-conversation-outline.ts` tracks the visible location and navigates within the thread. `components/chat/conversation-outline.tsx` owns the list and its loading/error/empty presentation. Optional `Message.outlineTitle` metadata comes from the API and is validated at the client boundary; messages without it use a text fallback. Editing a message clears its stale label.
+
+The right History panel is the saved-conversation switcher. Seeded `historyIds` include every conversation; tab-local chats join it when history saving is enabled. Clearing history does not clear the active conversation or its outline. `recentIds` remains in the HTTP contract for compatibility, with no second history list in the UI.
+
 ## HTTP contract
 
 | Method | Path                          | Response data                                                                    |

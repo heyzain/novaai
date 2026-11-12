@@ -21,7 +21,9 @@ import { MessageActions } from "./message-actions";
 import { ChatDialog } from "./chat-dialog";
 import { ConversationSearch } from "./conversation-search";
 import { MessageSkeleton } from "./message-skeleton";
-import { ConversationListSkeleton } from "./conversation-list-skeleton";
+import { ConversationOutline } from "./conversation-outline";
+import { messageTargetId, photosTargetId } from "@/chat/conversation-outline";
+import { useConversationOutline } from "@/chat/use-conversation-outline";
 import { HistoryPanelSkeleton } from "./history-panel-skeleton";
 import { RequestError } from "./request-error";
 
@@ -61,7 +63,6 @@ export function ChatInterface() {
     activeId,
     conversations,
     profile,
-    recentIds,
     history,
     selectedHistoryId,
     saveHistory,
@@ -93,6 +94,23 @@ export function ChatInterface() {
   const followReplies = useRef(true);
   const previousThread = useRef({ id: "", pending: false });
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const outlineReady = ready && conversationStatus === "ready";
+  const outline = useConversationOutline({
+    conversationId: activeId,
+    messages: active.messages,
+    ready: outlineReady,
+    threadRef: scrollRef,
+  });
+
+  function navigateOutline(targetId: string) {
+    closePanel();
+    requestAnimationFrame(() => outline.navigateTo(targetId));
+  }
+
+  function goToChatStart() {
+    closePanel();
+    requestAnimationFrame(outline.goToStart);
+  }
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -306,8 +324,8 @@ export function ChatInterface() {
             <button
               type="button"
               className="chat-home"
-              aria-label="Nova home"
-              onClick={() => selectConversation(recentIds[0] ?? activeId)}
+              aria-label="Go to start of chat"
+              onClick={goToChatStart}
             >
               <AppLogo size={52} />
             </button>
@@ -346,8 +364,8 @@ export function ChatInterface() {
           </nav>
           <aside
             className="chat-conversations"
-            id="conversation-sidebar"
-            aria-label="Conversations"
+            id="chat-outline-panel"
+            aria-label="Current chat outline"
             aria-hidden={compact ? !mobileSidebarOpen : sidebarCollapsed}
             tabIndex={-1}
             inert={
@@ -357,9 +375,9 @@ export function ChatInterface() {
             <div className="chat-conversations-top">
               <IconButton
                 icon={compact ? "close" : "sidebar"}
-                label={compact ? "Close navigation" : "Collapse conversations"}
+                label={compact ? "Close navigation" : "Collapse chat outline"}
                 aria-controls={
-                  compact ? "primary-navigation" : "conversation-sidebar"
+                  compact ? "primary-navigation" : "chat-outline-panel"
                 }
                 aria-expanded={compact ? mobileSidebarOpen : !sidebarCollapsed}
                 onClick={toggleSidebar}
@@ -373,54 +391,21 @@ export function ChatInterface() {
               <Icon name="plus" />
               New chat
             </Button>
-            <div className="chat-recents">
-              {!ready ? (
-                <ConversationListSkeleton loading={loading} />
-              ) : (
-                <>
-                  <div className="chat-recent-group">
-                    <h2>Today</h2>
-                    {recentIds.slice(0, 1).map((id) => {
-                      const item = conversations.find(
-                        (conversation) => conversation.id === id,
-                      )!;
-                      return (
-                        <button
-                          key={id}
-                          type="button"
-                          className={activeId === id ? "is-current" : ""}
-                          title={item.title}
-                          onClick={() => selectConversation(id)}
-                          aria-current={activeId === id ? "page" : undefined}
-                        >
-                          {item.navigationTitle ?? item.title}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <div className="chat-recent-group">
-                    <h2>Today</h2>
-                    {recentIds.slice(1).map((id) => {
-                      const item = conversations.find(
-                        (conversation) => conversation.id === id,
-                      )!;
-                      return (
-                        <button
-                          key={id}
-                          type="button"
-                          className={activeId === id ? "is-current" : ""}
-                          title={item.title}
-                          aria-current={activeId === id ? "page" : undefined}
-                          onClick={() => selectConversation(id)}
-                        >
-                          {item.title}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </>
-              )}
-            </div>
+            <ConversationOutline
+              title={active.title}
+              entries={outline.entries}
+              currentTargetId={outline.currentTargetId}
+              status={busy ? "loading" : outlineReady ? "ready" : "error"}
+              visible={
+                compact ? mobileSidebarOpen : !sidebarCollapsed && !historyOpen
+              }
+              updatingMessageId={
+                pendingReply?.conversationId === activeId
+                  ? pendingReply.replaceId
+                  : undefined
+              }
+              onNavigate={navigateOutline}
+            />
             <PremiumPlanCard onUpgrade={() => openModal("upgrade")} />
           </aside>
         </div>
@@ -439,12 +424,12 @@ export function ChatInterface() {
                 compact
                   ? "Open navigation"
                   : sidebarCollapsed
-                    ? "Open conversations"
-                    : "Collapse conversations"
+                    ? "Open chat outline"
+                    : "Collapse chat outline"
               }
               aria-expanded={compact ? mobileSidebarOpen : !sidebarCollapsed}
               aria-controls={
-                compact ? "primary-navigation" : "conversation-sidebar"
+                compact ? "primary-navigation" : "chat-outline-panel"
               }
               onClick={toggleSidebar}
             />
@@ -538,6 +523,8 @@ export function ChatInterface() {
                     <article
                       className="chat-message chat-assistant"
                       key={message.id}
+                      id={messageTargetId(message.id)}
+                      tabIndex={-1}
                       aria-label="Nova AI message"
                     >
                       <AppLogo size={44} />
@@ -547,8 +534,10 @@ export function ChatInterface() {
                         {message.images && (
                           <div
                             className="chat-mountain-images"
+                            id={photosTargetId(message.id)}
+                            tabIndex={-1}
                             role="group"
-                            aria-label="Mountain photos"
+                            aria-label="Message photos"
                           >
                             {message.images.map((image, index) => (
                               <button
@@ -579,6 +568,8 @@ export function ChatInterface() {
                     <article
                       className="chat-message chat-user"
                       key={message.id}
+                      id={messageTargetId(message.id)}
+                      tabIndex={-1}
                       aria-label="Your message"
                     >
                       <div className="chat-user-content">
@@ -607,12 +598,7 @@ export function ChatInterface() {
               <button
                 type="button"
                 className="chat-jump-latest"
-                onClick={() =>
-                  scrollRef.current?.scrollTo({
-                    top: scrollRef.current.scrollHeight,
-                    behavior: scrollBehavior(),
-                  })
-                }
+                onClick={outline.goToLatest}
               >
                 <Icon name="down" size={16} />
                 Latest messages

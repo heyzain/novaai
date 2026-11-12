@@ -22,6 +22,8 @@ const message = (value: unknown): value is Message =>
   typeof value.id === "string" &&
   (value.role === "assistant" || value.role === "user") &&
   typeof value.text === "string" &&
+  (value.outlineTitle === undefined ||
+    typeof value.outlineTitle === "string") &&
   (value.images === undefined ||
     (Array.isArray(value.images) &&
       value.images.every(
